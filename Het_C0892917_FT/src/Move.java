@@ -17,7 +17,7 @@ public class Move {
 
     //display the items of boxes one by one.
     public void print() {
-        System.out.println("Contents of the move:");
+        System.out.println("The objects of my move are  :");
         for (Box box : boxes) {
             printBoxContents(box, 0);
         }
@@ -49,7 +49,7 @@ public class Move {
     private int findItemInBox(Box box, String itemName) {
         for (Object item : box.getItems()) {
             if (item instanceof SingleObject && ((SingleObject) item).getName().equals(itemName)) {
-                return box.getBoxNumber();
+                return box.getBoxNumber()+1 ;
             } else if (item instanceof Box) {
                 int result = findItemInBox((Box) item, itemName);
                 if (result >= 0) {
